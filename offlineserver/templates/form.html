@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Template</title>
+</head>
+<body>
+    <h1>This is the simple HTML form to handle or test POST and GET API methods</h1>
+    <h2>{{ message }}</h2>
+
+    <p>This is the sample form to handle or test the POST API. You can post data through the form, and the data body will be displayed on the page.</p>
+
+    <h1>Check POST API:</h1>
+    <form method="post" action="{% url 'data_api' %}">
+        {% csrf_token %}
+        <label for="data">Data:</label>
+        <input type="text" id="data" name="data">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if data_received %}
+    <h1>POST Data Received:</h1>
+    <p>Data: {{ data_received }}</p>
+    {% endif %}
+</body>
+</html>
